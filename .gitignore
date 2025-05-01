@@ -1,0 +1,85 @@
+############################
+# OS X
+############################
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+.Spotlight-V100
+.Trashes
+._*
+
+############################
+# Windows
+############################
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+
+############################
+# Node.js
+############################
+lib-cov
+lcov.info
+pids
+logs
+results
+node_modules
+.node_history
+package-lock.json
+**/node_modules/**
+
+############################
+# Strapi
+############################
+.env
+.env.*
+license.txt
+exports
+*.cache
+dist
+build
+.strapi-updater.json
+.temp
+
+############################
+# Database
+############################
+*.sqlite
+*.sqlite3
+
+############################
+# Logs and databases
+############################
+.tmp
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+
+############################
+# Misc.
+############################
+*#
+ssl
+.idea
+.vscode
+nbproject
+public/uploads/*
+!public/uploads/.gitkeep
+
+############################
+# Node modules
+############################
+node_modules
+
+############################
+# Tests
+############################
+testApp
+coverage

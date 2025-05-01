@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_favourites",
+  "info": {
+    "singularName": "user-favourite",
+    "pluralName": "user-favourites",
+    "displayName": "User Favourite",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "userEmail": {
+      "type": "string",
+      "required": true
+    },
+    "recipeDocId": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
