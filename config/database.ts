@@ -47,7 +47,10 @@ export default ({ env }) => {
         },
         schema: env('DATABASE_SCHEMA', 'public'),
       },
-      pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
+      pool: { 
+        min: env.int('DATABASE_POOL_MIN', 2), 
+        max: env.int('DATABASE_POOL_MAX', 10) 
+      },
     },
     sqlite: {
       connection: {
@@ -66,6 +69,20 @@ export default ({ env }) => {
       client,
       ...connections[client],
       acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
+      pool: {
+        ...connections[client].pool,
+        // Adding this to extend statement timeout for PostgreSQL
+        afterCreate: (conn, done) => {
+          // Only set statement_timeout for PostgreSQL
+          if (client === 'postgres') {
+            conn.query('SET statement_timeout = 300000;', (err) => {
+              done(err, conn);
+            });
+          } else {
+            done(null, conn);
+          }
+        },
+      },
     },
   };
 };
